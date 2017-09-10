@@ -256,8 +256,19 @@ function setAngle (vec, ang) {
   return [r * Math.cos(ang), r * Math.sin(ang)]
 }
 
+/**
+ * Takes as a parameter a list of vectors and returns the center point or the average of the vector
+ * @param {array} vectorList This is the vector list
+ */
+function average (vectorList) {
+  let vec = vectorList.reduce((a, c) => add(a, c), [0, 0])
+  vec /= vectorList.length
+  return vec
+}
+
 module.exports = {
   add,
+  average,
   sub,
   mult,
   mag,
