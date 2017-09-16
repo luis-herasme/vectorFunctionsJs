@@ -262,8 +262,7 @@ function setAngle (vec, ang) {
  */
 function average (vectorList) {
   let vec = vectorList.reduce((a, c) => add(a, c), [0, 0])
-  vec /= vectorList.length
-  return vec
+  return mult(vec, 1 / vectorList.length)
 }
 
 module.exports = {
