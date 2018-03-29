@@ -10,7 +10,7 @@
  * // returns [20, 20]
  * add([5, 5], [10, 10], [5, 5])
  */
-function add () {
+function add (v1, v2) {
   const vectors = Array.from(arguments)
   return vectors.reduce(function (current, future) {
     future.forEach(function (value, index) {

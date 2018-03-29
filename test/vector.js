@@ -17,7 +17,12 @@ describe('Given an angle', function () {
 describe('Given an instance of the vector functions set', function () {
   it('I should be able to add 2 vectors', function () {
     expect([1, 10]).deep.equal(vector.add([0, 10], [1, 0]))
-    expect([0, 5, 10]).deep.equal(vector.add([0, 3.5], [0, 1.5], [0, 0, 10]))
+    // expect([0, 5, 10]).deep.equal(vector.add([0, 3.5], [0, 1.5], [0, 0, 10]))
+    console.time('vector.add')
+    for (let i = 0; i < 100000; i++) {
+      vector.add([0, 10], [1, 0])
+    }
+    console.timeEnd('vector.add')
   })
 
   it('I should be able to subtract 2 vectors', function () {
@@ -62,6 +67,9 @@ describe('Given an instance of the vector functions set', function () {
 
   it('I should be able to see the distance between 2 vectors', function () {
     expect(5).deep.equal(vector.distance([10, 10], [14, 13]))
+    console.time('vector.distance')
+    vector.distance([10, 10], [14, 13])
+    console.timeEnd('vector.distance')
   })
 
   it('I should be able to see the angle between 2 vectors', function () {
